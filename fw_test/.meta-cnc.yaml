@@ -1,0 +1,103 @@
+# skillet preamble information used by panhandler
+# ---------------------------------------------------------------------
+# unique snippet name
+name: myTestFWSkillet
+# label used for menu selection
+label: test_skillet
+description: Just testing
+
+# type of device configuration
+# common types are panorama, panos, and template
+# https://github.com/PaloAltoNetworks/panhandler/blob/develop/docs/metadata_configuration.rst
+type: panos
+# preload static or default-based templates
+extends:
+
+# grouping of like snippets for dynamic menu creation in panhandler
+labels:
+  collection:
+    - myTestin
+
+# ---------------------------------------------------------------------
+# end of preamble section
+
+# variables section
+# ---------------------------------------------------------------------
+# variables used in the configuration templates
+# type_hint defines the form field used by panhandler
+# type_hints can be text, ip_address, or dropdown
+variables:
+  - name: hostname
+    description: Firewall hostname
+    default: myFirewall
+    type_hint: fqdn_or_ip
+  - name: username
+    description: Firewall username
+    default: myFirewall
+    type_hint: text
+  - name: password
+    description: password
+    default: myPassword
+    type_hint: password
+  - name: profile_name
+    description: Syslog Server Profile Name
+    default: mySyslog
+    type_hint: text
+  - name: log_server_ip
+    description: sample dropdown list
+    default: choices
+    type_hint: dropdown
+    dd_list:
+      - key: server1
+        value: 192.168.1.1
+      - key: server2
+        value: 192.168.2.1
+  - name: tag_name
+    description: name of the new tag
+    default: myTag
+    type_hint: text
+    attributes:
+      min: 4
+      max: 32
+
+# ---------------------------------------------------------------------
+# end of variables section
+
+# snippets section
+# ---------------------------------------------------------------------
+# snippets used for api configuration including xpath and element as file name
+# files will load in the order listed
+# NOTE: The following snippets are auto-generated and ordered automatically.
+# Changing the content of the snippet may be necessary, but do NOT change the order
+
+# There is a variable called snippets that we can use to auto-generate this section for us
+snippets:
+
+  - name: syslog_profile
+    xpath: /config/shared/log-settings/syslog
+    element: |-
+        <entry name="{{ profile_name }}">
+                  <server>
+                    <entry name="{{ profile_name }}">
+                      <transport>UDP</transport>
+                      <port>514</port>
+                      <format>BSD</format>
+                      <server>{{ log_server_ip }}</server>
+                      <facility>LOG_USER</facility>
+                    </entry>
+                  </server>
+                  <format>
+                    <traffic>&lt;&lt;Test+Tests&gt;&gt;</traffic>
+                  </format>
+                </entry>
+
+  - name: new_tag
+    xpath: /config/devices/entry[@name="localhost.localdomain"]/vsys/entry[@name="vsys1"]/tag
+    element: |-
+        <entry name="{{ tag_name }}">
+                      <color>color1</color>
+                    </entry>
+
+
+# ---------------------------------------------------------------------
+# end of snippets section
