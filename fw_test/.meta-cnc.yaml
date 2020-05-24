@@ -86,9 +86,6 @@ snippets:
                       <facility>LOG_USER</facility>
                     </entry>
                   </server>
-                  <format>
-                    <traffic>&lt;&lt;Test+Tests&gt;&gt;</traffic>
-                  </format>
                 </entry>
 
   - name: new_tag
