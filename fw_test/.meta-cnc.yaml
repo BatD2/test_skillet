@@ -73,23 +73,23 @@ variables:
 # There is a variable called snippets that we can use to auto-generate this section for us
 snippets:
 
-  - name: syslog_profile
-    xpath: /config/shared/log-settings/syslog
-    element: |-
-        <entry name="{{ profile_name }}">
-                  <server>
-                    <entry name="{{ profile_name }}">
-                      <transport>UDP</transport>
-                      <port>514</port>
-                      <format>BSD</format>
-                      <server>{{ log_server_ip }}</server>
-                      <facility>LOG_USER</facility>
-                    </entry>
-                  </server>
-                  <format>
-                    <traffic>&lt;&lt;Test+Tests&gt;&gt;</traffic>
-                  </format>
-                </entry>
+  # - name: syslog_profile
+  #   xpath: /config/shared/log-settings/syslog
+  #   element: |-
+  #       <entry name="{{ profile_name }}">
+  #                 <server>
+  #                   <entry name="{{ profile_name }}">
+  #                     <transport>UDP</transport>
+  #                     <port>514</port>
+  #                     <format>BSD</format>
+  #                     <server>{{ log_server_ip }}</server>
+  #                     <facility>LOG_USER</facility>
+  #                   </entry>
+  #                 </server>
+  #                 <format>
+  #                   <traffic>&lt;&lt;Test+Tests&gt;&gt;</traffic>
+  #                 </format>
+  #               </entry>
 
   - name: new_tag
     xpath: /config/devices/entry[@name="localhost.localdomain"]/vsys/entry[@name="vsys1"]/tag
