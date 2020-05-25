@@ -1,6 +1,5 @@
 {% for tempate in template_name %}
-  <entry name="{{tempate}}">
-{%  endfor %}
+<entry name="{{tempate}}">
   <config>
     <shared>
       <log-settings>
@@ -42,3 +41,4 @@
     </shared>
   </config>
 </entry>
+{%  endfor %}
