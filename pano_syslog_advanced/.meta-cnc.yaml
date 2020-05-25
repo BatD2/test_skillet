@@ -30,8 +30,8 @@ variables:
   - name: template_name
     description: Tempalate to apply the profile to
     default: tmpl_test1
-    type_hint: dropdown
-    dd_list:
+    type_hint: radio
+    rad_list:
       - key: 'tmpl_test1'
         value: 'tmpl_test1'
       - key: 'tmpl_test2'
