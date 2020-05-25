@@ -1,4 +1,4 @@
-name: testtPanoramaSkillet
+name: testtPanoramaSkilletList
 # label used for menu selection
 label: Syslog_Profile_Panorama_Template_lsit
 description: Apply Custom Syslog profile to Panorama Tempaltes using list

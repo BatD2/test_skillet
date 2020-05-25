@@ -1,4 +1,4 @@
-name: testtPanoramaSkillet
+name: testtPanoramaSkilletDropdn
 # label used for menu selection
 label: Syslog_Profile_Panorama_Template_Dropdown_list
 description: Apply Custom Syslog profile to Panorama Tempaltes using dropdown
