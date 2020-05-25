@@ -26,8 +26,8 @@ variables:
   - name: profile_name
     description: Syslog Server Profile Name
     default: syslog_server1
-    type_hint: text 
-  - name: template_names
+    type_hint: text
+  - name: template_name
     description: Tempalate to apply the profile to
     default: tmpl_test1
     type_hint: list
