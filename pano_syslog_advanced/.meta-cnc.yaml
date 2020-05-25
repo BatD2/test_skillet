@@ -54,7 +54,7 @@ variables:
 snippets:
 
   - name: syslog_profile
-    xpath: /config/devices/entry[@name='localhost.localdomain']/template/entry[@name='{{template_name}}']/config/shared/log-settings/syslog
+    xpath: /config/devices/entry[@name='localhost.localdomain']/template
     file: cef_file.xml
 
 # ---------------------------------------------------------------------
