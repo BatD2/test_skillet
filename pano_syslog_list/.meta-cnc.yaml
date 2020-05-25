@@ -27,7 +27,7 @@ variables:
     description: Syslog Server Profile Name
     default: syslog_server1
     type_hint: text 
-  - name: template_name
+  - name: template_names
     description: Tempalate to apply the profile to
     default: tmpl_test1
     type_hint: list
@@ -41,7 +41,9 @@ variables:
 snippets:
 
   - name: syslog_profile
+    {% for template_name in template_names  %}
     xpath: /config/devices/entry[@name='localhost.localdomain']/template/entry[@name='{{template_name}}']/config/shared/log-settings/syslog
+    {$endfor }
     file: cef_file.xml
 
 # ---------------------------------------------------------------------
