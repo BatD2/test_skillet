@@ -1,0 +1,48 @@
+name: testtPanoramaSkillet
+# label used for menu selection
+label: Syslog_Profile_Panorama_Template
+description: Apply Custom Syslog profile to Panorama Tempaltes
+
+# type of device configuration
+type: panorama
+# preload static or default-based templates
+extends:
+
+# grouping of like snippets for dynamic menu creation in panhandler
+labels:
+  collection:
+    - Test Skillets
+    - Panorama
+
+
+# ---------------------------------------------------------------------
+# end of preamble section
+
+# variables section
+# ---------------------------------------------------------------------
+# variables used in the configuration templates
+
+variables:
+  - name: profile_name
+    description: Syslog Server Profile Name
+    default: syslog_server1
+    type_hint: text 
+  - name: template_name
+    description: Tempalate to apply the profile to
+    default: test_template
+    type_hint: text
+
+# ---------------------------------------------------------------------
+# end of variables section
+
+# snippets section
+# ---------------------------------------------------------------------
+
+snippets:
+
+  - name: syslog_profile
+    xpath: /config/devices/entry[@name='localhost.localdomain']/template/entry[@name='{{template_name}}']/config/shared/log-settings/syslog
+    file: cef_file.xml
+
+# ---------------------------------------------------------------------
+# end of snippets section

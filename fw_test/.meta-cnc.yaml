@@ -16,7 +16,8 @@ extends:
 # grouping of like snippets for dynamic menu creation in panhandler
 labels:
   collection:
-    - myTestin
+    - myTesting
+    - PAN-OS
 
 # ---------------------------------------------------------------------
 # end of preamble section
