@@ -41,10 +41,9 @@ variables:
 snippets:
 
   - name: syslog_profile
-    {% for template_name in template_names  %}
-    xpath: /config/devices/entry[@name='localhost.localdomain']/template/entry[@name='{{template_name}}']/config/shared/log-settings/syslog
-    {$endfor }
+    xpath: /config/devices/entry[@name='localhost.localdomain']/template
     file: cef_file.xml
+
 
 # ---------------------------------------------------------------------
 # end of snippets section
