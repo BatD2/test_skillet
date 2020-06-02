@@ -1,4 +1,4 @@
-name: testtPanoramaSkillet Dynamic
+name: testtPanoramaSkillet Dynamc
 label: Syslog_Profile_Panorama_Template_Radio_list
 description: Apply Custom Syslog profile to Panorama Tempaltes matching regex
 # type of device configuration
@@ -57,9 +57,5 @@ snippets:
     xpath: /config/devices/entry[@name='localhost.localdomain']/template
     file: cef_file.xml
 
-
-
-
 # ---------------------------------------------------------------------
 # end of snippets section
-Panorama
