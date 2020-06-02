@@ -1,6 +1,6 @@
-name: PanoramaSkillet Dynamc
-label: Syslog_Profile_Panorama_Template_Regex
-description: Apply Custom Syslog profile to Panorama Tempaltes matching regex
+name: testtPanoramaSkilletDynamc_Checkbox
+label: Syslog_Profile_Panorama_Template_Regex_Checkbox
+description: Apply Custom Syslog profile to Panorama Tempaltes matching regex with checkbox
 # type of device configuration
 type: panorama
 # preload static or default-based templates
@@ -46,6 +46,12 @@ snippets:
       - name: filtered_names
         capture_list: ./entry/@name
         filter_items: item | regex_search("{{ template_regex }}")
+
+  - name: template_selection
+    description: list of templates available for configuration update
+    default:
+    type_hint: checkbox
+    source: template_names
 
   - name: syslog_profile
     xpath: /config/devices/entry[@name='localhost.localdomain']/template
