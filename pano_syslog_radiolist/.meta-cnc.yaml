@@ -1,5 +1,4 @@
-name: testtPanoramaSkilletRadio
-# label used for menu selection
+name: testtPanoramaSkilletRadio# label used for menu selection
 label: Syslog_Profile_Panorama_Template_Radio_list
 description: Apply Custom Syslog profile to Panorama Tempaltes using Radio
 
@@ -11,7 +10,7 @@ extends:
 # grouping of like snippets for dynamic menu creation in panhandler
 labels:
   collection:
-    - Test Skillets
+    - MySkillets
     - Panorama
 
 

@@ -1,8 +1,6 @@
-name: testtPanoramaSkilletList
-# label used for menu selection
-label: Syslog_Profile_Panorama_Template_lsit
-description: Apply Custom Syslog profile to Panorama Tempaltes using list
-
+name: testtPanoramaSkillet Dynamic
+label: Syslog_Profile_Panorama_Template_Radio_list
+description: Apply Custom Syslog profile to Panorama Tempaltes matching regex
 # type of device configuration
 type: panorama
 # preload static or default-based templates
@@ -11,7 +9,7 @@ extends:
 # grouping of like snippets for dynamic menu creation in panhandler
 labels:
   collection:
-    - MySkillets
+    - _MySkillets
     - Panorama
 
 
@@ -23,14 +21,12 @@ labels:
 # variables used in the configuration templates
 
 variables:
-  - name: profile_name
-    description: Syslog Server Profile Name
-    default: syslog_server1
+  #Collect all Panorama Templates
+  - name: template_regex
     type_hint: text
-  - name: template_name
-    description: Tempalate to apply the profile to
-    default: tmpl_test1
-    type_hint: list
+    description: Filter Templates by Regex
+    default: '.*spec.*'
+
 
 # ---------------------------------------------------------------------
 # end of variables section
@@ -40,10 +36,30 @@ variables:
 
 snippets:
 
+  - name: get_templates
+    cmd: get
+    xpath: /config/devices/entry[@name='localhost.localdomain']/template
+    output_type: xml
+    outputs:
+      - name: template_names
+        capture_list: ./entry/@name
+      - name: filtered_names
+        capture_list: ./entry/@name
+        filter_items: item | regex_search("{{ template_regex }}")
+
+  # - name: template_selection
+  #   description: list of templates available for configuration update
+  #   default:
+  #   type_hint: checkbox
+  #   source: template_names
+
   - name: syslog_profile
     xpath: /config/devices/entry[@name='localhost.localdomain']/template
     file: cef_file.xml
 
 
+
+
 # ---------------------------------------------------------------------
 # end of snippets section
+Panorama
