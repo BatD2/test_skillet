@@ -21,11 +21,16 @@ labels:
 # variables used in the configuration templates
 
 variables:
+  # Name of syslog profile. Used in snippet
+  - name: profile_name
+    description: Syslog Server Profile Name
+    default: syslog_server1
+    type_hint: text
   #Collect all Panorama Templates
   - name: template_regex
     type_hint: text
     description: Filter Templates by Regex
-    default: '.*spec.*'
+    default: '.*spec'
 
 
 # ---------------------------------------------------------------------
