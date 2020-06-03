@@ -54,9 +54,9 @@ snippets:
 
   - name: template_selection
     description: list of templates available for configuration update
-    default:
+    default: test_template1
     type_hint: checkbox
-    source: template_names
+    source: filtered_names
 
   - name: syslog_profile
     xpath: /config/devices/entry[@name='localhost.localdomain']/template
